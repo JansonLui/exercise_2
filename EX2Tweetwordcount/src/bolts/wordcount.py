@@ -28,10 +28,10 @@ class WordCounter(Bolt):
 
         cur = conn.cursor()
         cur.execute("select * from tweetwordcount where word = '%s'" % word)
-        results = len(cur.fetchall())
-        if results > 0:
+        results = cur.fetchall()
+        if len(results) > 0:
                cur.execute("UPDATE tweetwordcount SET count = %s where word = %s", (self.counts[word], word))
-	if results == 0:
+	if len(results) == 0:
                cur.execute("INSERT INTO tweetwordcount (word,count) VALUES ('%s', 1)" % word)
 
         conn.commit()
