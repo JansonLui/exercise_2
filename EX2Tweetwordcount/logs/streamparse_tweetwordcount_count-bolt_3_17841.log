@@ -1,9 +1,0 @@
-2016-08-04 03:42:14,809 - streamparse.storm.component - ERROR - Exception in WordCounter.run()
-Traceback (most recent call last):
-  File "/home/janson/.local/lib/python2.7/site-packages/streamparse/storm/component.py", line 483, in run
-    self._run()
-  File "/home/janson/.local/lib/python2.7/site-packages/streamparse/storm/bolt.py", line 214, in _run
-    self.process(tup)
-  File "bolts/wordcount.py", line 36, in process
-    cur.execute("UPDATE tweetwordcount SET count = %s where word = %s", (self.count[word], word))
-AttributeError: 'WordCounter' object has no attribute 'count'
