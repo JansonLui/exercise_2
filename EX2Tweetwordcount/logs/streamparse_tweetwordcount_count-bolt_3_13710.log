@@ -1,0 +1,12 @@
+2016-08-04 03:10:13,140 - streamparse.storm.component - ERROR - Exception in WordCounter.run()
+Traceback (most recent call last):
+  File "/home/janson/.local/lib/python2.7/site-packages/streamparse/storm/component.py", line 483, in run
+    self._run()
+  File "/home/janson/.local/lib/python2.7/site-packages/streamparse/storm/bolt.py", line 214, in _run
+    self.process(tup)
+  File "bolts/wordcount.py", line 32, in process
+    cur.execute("select word,count from tweetwordcount where word = '%s'" % word)
+ProgrammingError: syntax error at or near "t"
+LINE 1: select word,count from tweetwordcount where word = 'can't'
+                                                                ^
+
